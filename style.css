@@ -14,6 +14,11 @@
   to{translate:0 0 0;
   opacity: 100;}
 }
+@keyframes correctanim{
+  from{color: black;}
+  50%{color: green;}
+  to{color: black;}
+}
 
 .navbar{
   display: flex;
@@ -136,6 +141,8 @@ font-weight: bold;
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
+  height: auto;
+  margin-bottom: 50px;
  
   
 }
@@ -176,3 +183,41 @@ font-weight: bold;
 html {
   scroll-behavior: smooth;
 }
+.feedback{
+  position:relative;
+  width: 200px;
+  height: 200px;
+  
+ }
+.answer_box{
+  margin-top: 100px;
+  width: 700px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #bac4ff;
+}
+.submit{
+  height: 46px;
+  margin-top: 100px;
+  border-radius: 2px;
+  background-color:#bac4ff;}
+
+.answer{
+  display: flex;
+ 
+}
+.submit:hover{
+ background-color: rgb(193, 238, 193);}
+
+ .correctanim{
+  animation:correctanim 2s;
+ }
+ .display_answer{
+  width:600px;
+  position:absolute;
+  height: 40px;
+  background-color: white;
+  z-index: 1;
+  margin-top:60px;
+  margin-left: 120px;
+ }
