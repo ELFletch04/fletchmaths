@@ -6,10 +6,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="../script.js"></script>
    
 
    </head>
     <body>
+      
       <div class="navbar">
           <div class="navlist"><a class="navlist" href="../index.html">Home</a></div>
           <div class="navlist"><a class="navlist" href="../revisionmaterial.html">Revision Materials</a></div>
@@ -43,11 +45,59 @@
         <p class="math display math">$${\lim_{a \rightarrow b}( \mp )}$$</p>
         <p class="normaltext"  >Which of these is not a surd?</p>
         <div class="question">
-         <button class="option_a">$${7\over\sqrt{3}}$$</button><button>B</button><button>C</button><button>D</button>
+         <button id="option_a" onclick="correct()">$${7\over\sqrt{3}}$$</button>
+         <button id="option_b" onclick="incorrect()">B</button>
+         <button id="option_c" onclick="incorrect()">C</button>
+         <button id="option_d" onclick="incorrect()">D</button>
         </div>
+        <div id="surds_1_feedback" class="normaltext"></div>
+        <script src="../script.js"></script>
+
+            <div class="answer">
+               <div class="display_answer">dd</div>
+              <div><label for="answer_box"class="normaltext" >6 X 7 =</label><input type="text" class="answer_box" id="answer_box" placeholder="Enter Answer"></div> 
+               <button class="submit normaltext" type="button" id="submit">Check</button>
+               <button class="submit normaltext" type="button" id="root">$${\sqrt{}}$$</button>
+               <!-- This is where the text will be displayed -->
+               <audio id="buttonSound" src="../ding.mp3" preload="auto"></audio>
+               <script>
+                  
+                  document.getElementById("root").onclick = function() {
+            var answerBox = document.getElementById("answer_box");
+            var currentValue = answerBox.value;
+            
+            // Append "1" to the current value and update the input field
+            answerBox.value = currentValue + "sqrt";
+        };
+           document.getElementById("submit").onclick = function() {
+                       var answer = document.getElementById("answer_box").value;
+                        if(answer=="42"){document.getElementById("displayText").textContent = "Correct!";
+                        document.getElementById("displayText").style.color= 'green';
+                        buttonSound.play();
+                        }
+                        else{
+                              var wrongAnswerOption=Math.floor(Math.random() * 3)
+                              switch(wrongAnswerOption){
+                                 case 0:
+                                    var wrongAnswer="Not Quite!";
+                                    break;
+                                 case 1:
+                                    var wrongAnswer="Try again!";
+                                    break;
+                                 case 2:
+                                    var wrongAnswer="It's close but it's not the one!";           
+                              }   
+                           document.getElementById("displayText").textContent = wrongAnswer;
+                        document.getElementById("displayText").style.color = 'red';
+                        }    
+                     }
+                     // Ensure the DOM is fully loaded before running the script
         
-        
-        
+          </script>
+
+            </div>
+        <div id="displayText" class="normaltext"></div>
+       
          
       </section>
    </div>
